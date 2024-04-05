@@ -3,6 +3,7 @@ import 'package:equatable/equatable.dart';
 class ApplicantModel extends Equatable {
   ApplicantModel({
     required this.userId,
+    required this.password,
     required this.userEmail,
     required this.firstName,
     required this.middleName,
@@ -10,6 +11,7 @@ class ApplicantModel extends Equatable {
     required this.roleId,
   });
 
+  final String password;
   final int userId;
   final String userEmail;
   final String firstName;
@@ -21,6 +23,7 @@ class ApplicantModel extends Equatable {
     return ApplicantModel(
       userId: json["userID"] ?? 0,
       userEmail: json["userEmail"] ?? "",
+      password: json["password"] ?? "",
       firstName: json["firstName"] ?? "",
       middleName: json["middleName"] ?? "",
       lastName: json["lastName"] ?? "",
@@ -31,6 +34,7 @@ class ApplicantModel extends Equatable {
   Map<String, dynamic> toJson() => {
     "userID": userId,
     "userEmail": userEmail,
+    "password" : password,
     "firstName": firstName,
     "middleName": middleName,
     "lastName": lastName,
@@ -39,12 +43,12 @@ class ApplicantModel extends Equatable {
 
   @override
   String toString(){
-    return "$userId, $userEmail, $firstName, $middleName, $lastName, $roleId, ";
+    return "$userId, $userEmail,$password, $firstName, $middleName, $lastName, $roleId, ";
   }
 
   @override
   List<Object?> get props => [
-    userId, userEmail, firstName, middleName, lastName, roleId, ];
+    userId, userEmail,password, firstName, middleName, lastName, roleId, ];
 
 }
 
